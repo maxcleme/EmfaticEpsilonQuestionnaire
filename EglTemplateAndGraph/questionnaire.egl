@@ -1,0 +1,26 @@
+[%for (debut in Debut) { %]
+   [%   	
+      var t : Template = TemplateFactory.load("debut.egl");
+	  t.populate("debut", debut);
+	  t.generate("gen/"+ debut.nom + ".html");
+   %]
+[% } %]
+
+
+[%for (question in Question) { %]
+   [%
+      var t : Template = TemplateFactory.load("question.egl");
+	  t.populate("question", question);
+	  t.generate("gen/"+ question.nom + ".html");
+   %]
+[% } %]
+
+
+[%for (fin in Fin) { %]
+   [%   	
+      var t : Template = TemplateFactory.load("fin.egl");
+	  t.populate("fin", fin);
+	  t.generate("gen/"+ fin.nom + ".html");
+   %]
+[% } %]
+   

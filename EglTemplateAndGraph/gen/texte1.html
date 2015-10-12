@@ -1,0 +1,68 @@
+
+<html>
+	<meta charset="UTF-8"> 
+	<head>
+		<title>Mon questionnaire</title>
+			<link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.form-control.error::-webkit-input-placeholder { color: red; }
+		.form-control.error:-moz-placeholder { color: red; }
+		.form-control.error::-moz-placeholder { color: red; }
+		.form-control.error:-ms-input-placeholder { color: red; }
+		.form-control.error:focus {
+ 			border-color: #FF0000;
+  			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+		}
+	</style>
+
+	</head>
+	<body>
+		<div class="container text-center">
+				<h2> Ceci est un simple texte, il n'y a donc pas de saisie utilisateur </h2>
+
+			<div class="col-md-offset-4 col-md-4">
+					<form id="texte1" class="form-horizontal">
+		
+			<button class="btn btn-lg btn-info" type="submit">Suivant</button>
+
+	</form>
+	
+	
+
+						<script src="../lib/js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+			function questionDejaEnregistre(element, index, array) {
+    	return element.intitule === "Ceci est un simple texte, il n'y a donc pas de saisie utilisateur";
+	}
+	$('#texte1').on('submit', function(){
+		val = $('input[name="reponse"]:checked').val() || $('input[name="reponse"]').val();
+		
+		if ( val ) {
+			recap = JSON.parse(localStorage.getItem('recap')) || [];
+			ancienneValeur = recap.find(questionDejaEnregistre);
+			if ( ancienneValeur ){
+				ancienneValeur.reponse = val;
+			}else{
+				question = {
+					'intitule' : "Ceci est un simple texte, il n'y a donc pas de saisie utilisateur",
+					'reponse' : val
+				};
+				recap.push(question);			
+			}
+			localStorage.setItem("recap", JSON.stringify(recap));
+		}
+			window.location.href = "question1.html";
+	return false;
+
+	});
+
+	</script>
+
+			</div>
+		</div>
+	</body>
+</html>
+
+
+

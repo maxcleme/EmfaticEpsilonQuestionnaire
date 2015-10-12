@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/QuestionnaireFunky/src" modelPluginID="QuestionnaireFunky"
+    modelName="Questionnaire" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>metamodel.ecore</foreignModel>
+  <genPackages prefix="Questionnaire" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
+    <genClasses ecoreClass="metamodel.ecore#//Questionnaire">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/questions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/typesSaisies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/aiguilleurs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/tests"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/fin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Questionnaire/debut"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Debut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Debut/nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Debut/premiereQuestion"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Fin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Fin/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Texte"/>
+    <genClasses ecoreClass="metamodel.ecore#//QuestionOuverte"/>
+    <genClasses ecoreClass="metamodel.ecore#//QuestionOuiNon"/>
+    <genClasses ecoreClass="metamodel.ecore#//QuestionReponseMultiple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//QuestionReponseMultiple/reponsesPossible"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Aiguilleur">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Aiguilleur/nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Aiguilleur/tests"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Aiguilleur/elseDestination"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//TestEntre">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TestEntre/borneMinIncluse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TestEntre/borneMaxExcluse"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//TestInferieur">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TestInferieur/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//TestSuperieur">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TestSuperieur/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//TestEgalite">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TestEgalite/egal"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//TypeSaisieNumerique"/>
+    <genClasses ecoreClass="metamodel.ecore#//TypeSaisieAlphaNumerique"/>
+    <genClasses ecoreClass="metamodel.ecore#//TypeSaisieAlpha"/>
+    <genClasses ecoreClass="metamodel.ecore#//TypeSaisieAll"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//TypeSaisie">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TypeSaisie/regex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//TypeSaisie/message"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Question/question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Question/nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Question/suite"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Question/typeSaisie"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Test">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Test/destination"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Next"/>
+  </genPackages>
+</genmodel:GenModel>
