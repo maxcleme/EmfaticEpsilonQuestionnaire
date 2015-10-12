@@ -1,0 +1,113 @@
+
+<html>
+	<meta charset="UTF-8"> 
+	<head>
+		<title>Mon questionnaire</title>
+			<link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.form-control.error::-webkit-input-placeholder { color: red; }
+		.form-control.error:-moz-placeholder { color: red; }
+		.form-control.error::-moz-placeholder { color: red; }
+		.form-control.error:-ms-input-placeholder { color: red; }
+		.form-control.error:focus {
+ 			border-color: #FF0000;
+  			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+		}
+	</style>
+
+	</head>
+	<body>
+		<div class="container text-center">
+				<h2> Quel est le type de votre etablissement ? </h2>
+
+			<div class="col-md-offset-4 col-md-4">
+					<form id="5" class="form-horizontal">
+				<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="Primaire" checked> Primaire
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="College" checked> College
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="Lycee" checked> Lycee
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="Universite" checked> Universite
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="Ecole d'ingenieur" checked> Ecole d'ingenieur
+			</label>
+		</div>
+
+			<button class="btn btn-lg btn-info" type="submit">Suivant</button>
+
+	</form>
+	
+	
+
+						<script src="../lib/js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+			function questionDejaEnregistre(element, index, array) {
+    	return element.intitule === "Quel est le type de votre etablissement ?";
+	}
+	$('#5').on('submit', function(){
+		val = $('input[name="reponse"]:checked').val() || $('input[name="reponse"]').val();
+			if ( ! new RegExp('^[A-zÀ-ÿ\' ]+$').test(val) ) {
+			$('input').addClass('error');
+	$('input').val('');
+	$('input').attr('placeholder', '');
+	return false;
+
+	}
+
+		if ( val ) {
+			recap = JSON.parse(localStorage.getItem('recap')) || [];
+			ancienneValeur = recap.find(questionDejaEnregistre);
+			if ( ancienneValeur ){
+				ancienneValeur.reponse = val;
+			}else{
+				question = {
+					'intitule' : "Quel est le type de votre etablissement ?",
+					'reponse' : val
+				};
+				recap.push(question);			
+			}
+			localStorage.setItem("recap", JSON.stringify(recap));
+		}
+				if ( 	val === "Universite" 
+ ) {
+				window.location.href = "page6.html";
+	return false;
+
+		}
+		if ( 	val === "Ecole d'ingenieur" 
+ ) {
+				window.location.href = "page6.html";
+	return false;
+
+		}
+		window.location.href = "page11.html";
+	return false;
+
+
+	});
+
+	</script>
+
+			</div>
+		</div>
+	</body>
+</html>
+
+
+

@@ -1,0 +1,116 @@
+@namespace(uri="questionnaire", prefix="questionnaire")
+@gmf
+package questionnaire;
+
+@gmf.diagram
+class Questionnaire {
+	val Question[*] questions;
+	val TypeSaisie[*] typesSaisies;
+	val Aiguilleur[*] aiguilleurs;
+	val Test[*] tests;
+	val Fin fin;
+	val Debut debut;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/start.svg", label="nom", label.text="debut", label.readOnly="true")
+class Debut {
+	attr String nom;
+	
+	@gmf.link(target.decoration="arrow")
+	ref Question premiereQuestion;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/end.svg", label="nom", label.text="fin", label.readOnly="true")
+class Fin extends Next {
+	attr String nom;
+	
+}
+
+class Texte extends Question{
+}
+
+class QuestionOuverte extends Question{
+}
+
+class QuestionOuiNon extends Question{
+}
+
+class QuestionReponseMultiple extends Question{
+	attr String[*] reponsesPossible;	
+}
+
+
+@gmf.node(figure="rectangle", label="nom", label.text="Si", label.readOnly="true")
+class Aiguilleur extends Next {
+	attr String nom;
+	
+	@gmf.compartment	
+	val Test[*] tests;
+	
+	@gmf.link(target.decoration="arrow", label.text="Sinon")
+	ref Next elseDestination;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/brackets.svg", label="borneMinIncluse, borneMaxExcluse")
+class TestEntre extends Test{
+	attr int borneMinIncluse;
+	attr int borneMaxExcluse;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/lessThan.svg", label="valeur")
+class TestInferieur extends Test{
+	attr int valeur;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/greaterThanOrEqual.svg", label="valeur")
+class TestSuperieur extends Test{
+	attr int valeur;
+}
+
+@gmf.node(figure="svg", svg.uri="platform:/plugin/QuestionnaireFunky/model/img/equal.svg", label="egal")
+class TestEgalite extends Test {
+	attr String egal;
+}
+
+
+@gmf.node(label="regex", label.text="[0-9]", label.readOnly="true")
+class TypeSaisieNumerique extends TypeSaisie{
+}
+@gmf.node(label="regex", label.text="[a-zA-Z0-9]", label.readOnly="true")
+class TypeSaisieAlphaNumerique extends TypeSaisie{
+}
+@gmf.node(label="regex", label.text="[a-zA-Z]", label.readOnly="true")
+class TypeSaisieAlpha extends TypeSaisie{	
+}
+@gmf.node(label="regex", label.text="[*]", label.readOnly="true")
+class TypeSaisieAll extends TypeSaisie{	
+}
+
+abstract class TypeSaisie {
+	attr String regex;
+	attr String message;
+}
+
+
+@gmf.node(figure="rectangle", label="question")
+abstract class Question extends Next{
+	attr String question;	
+	
+	@gmf.compartment
+	val TypeSaisie typeSaisie;
+	
+	@gmf.link(target.decoration="arrow")
+	ref Next suite;
+}
+
+abstract class Test {
+	@gmf.link(target.decoration="arrow")
+	ref Next destination;
+	
+	
+	
+}
+
+abstract class Next  {
+}
+

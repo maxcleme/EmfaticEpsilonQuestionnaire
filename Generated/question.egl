@@ -1,0 +1,185 @@
+
+[%=generatePage(question)%]
+
+
+[% operation generatePage(question : Question) : String { %]
+<html>
+	<meta charset="UTF-8"> 
+	<head>
+		<title>Mon questionnaire</title>
+		[%=generateCss()%]
+	</head>
+	<body>
+		<div class="container text-center">
+			[%=generateLabel(question)%]
+			<div class="col-md-offset-4 col-md-4">
+				[%=generateQuestion(question)%]
+				[%=generateScript(question)%]
+			</div>
+		</div>
+	</body>
+</html>
+[% } %]
+
+[% operation generateCss() : String { %]
+	<link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.form-control.error::-webkit-input-placeholder { color: red; }
+		.form-control.error:-moz-placeholder { color: red; }
+		.form-control.error::-moz-placeholder { color: red; }
+		.form-control.error:-ms-input-placeholder { color: red; }
+		.form-control.error:focus {
+ 			border-color: #FF0000;
+  			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+		}
+	</style>
+[% } %]
+
+[% operation generateQuestion(question : Question) : String { %]
+	<form id="[%=Next.all.indexOf(question)%]" class="form-horizontal">
+		[%=generateInput(question)%]
+		[%=generateSubmit(question)%]
+	</form>
+	
+	
+[% } %]
+
+[% operation generateLabel(question : Question) : String { %]
+	<h2> [%=question.question%] </h2>
+[% } %]
+
+
+[% operation generateInput(question : Texte) : String { %]
+[% } %]
+
+[% operation generateInput(question : QuestionOuverte) : String { %]
+	<input class="form-control" name="reponse" id="[%=Next.all.indexOf(question)%]" placeholder="Votre reponse" autofocus>
+[% } %]
+		
+[% operation generateInput(question : QuestionOuiNon) : String { %]
+	<div class="radio">
+		<label>
+			<input type="radio" name="reponse" value="Oui"> Oui		
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="reponse" value="Non" checked> Non		
+		</label>
+	</div>
+[% } %]
+
+[% operation generateInput(question : QuestionReponseMultiple) : String { %]
+	[% for ( reponse in question.reponsesPossible ) { %]
+		<div class="radio">
+			<label>
+				<input type="radio" name="reponse" value="[%=reponse%]" checked> [%=reponse%]
+			</label>
+		</div>
+	[% } %]
+[% } %]
+
+[% operation generateSubmit(question : Question) : String { %]
+	<button class="btn btn-lg btn-info" type="submit">Suivant</button>
+[% } %]
+
+[% operation generateScript(question : Question) : String { %]
+	[%=generatejQuery()%]
+	<script type="text/javascript">
+		[%=generateOnSubmitEvent(question)%]
+	</script>
+[% } %]
+
+[% operation generatejQuery() : String { %]
+	<script src="../lib/js/jquery.min.js"></script>
+[% } %]
+
+[% operation generateOnSubmitEvent(question : Question) : String { %]
+	function questionDejaEnregistre(element, index, array) {
+    	return element.intitule === "[%=question.question%]";
+	}
+	$('#[%=Next.all.indexOf(question)%]').on('submit', function(){
+		val = $('input[name="reponse"]:checked').val() || $('input[name="reponse"]').val();
+		[%=generateTestSaisie(question.typeSaisie)%]
+		if ( val ) {
+			recap = JSON.parse(localStorage.getItem('recap')) || [];
+			ancienneValeur = recap.find(questionDejaEnregistre);
+			if ( ancienneValeur ){
+				ancienneValeur.reponse = val;
+			}else{
+				question = {
+					'intitule' : "[%=question.question%]",
+					'reponse' : val
+				};
+				recap.push(question);			
+			}
+			localStorage.setItem("recap", JSON.stringify(recap));
+		}
+		[%=generateRedirection(question.suite)%]
+	});
+[% } %]
+
+[% operation generateTestSaisie(type : TypeSaisieAll) : String { %]
+[% } %]
+
+[% operation generateTestSaisie(type : TypeSaisieNumerique) : String { %]
+	if ( ! new RegExp('^\\d+$').test(val) ) {
+		[%=generateTraitementErreurSaisie(type)%]
+	}
+[% } %]
+
+[% operation generateTestSaisie(type : TypeSaisieAlpha) : String { %]
+	if ( ! new RegExp('^[A-zÀ-ÿ\' ]+$').test(val) ) {
+		[%=generateTraitementErreurSaisie(type)%]
+	}
+[% } %]
+
+[% operation generateTestSaisie(type : TypeSaisieAlphaNumerique) : String { %]
+	if ( ! new RegExp('^[A-zÀ-ÿ0-9\' ]+$').test(val) ) {
+		[%=generateTraitementErreurSaisie(type)%]
+	}
+[% } %]
+
+[% operation generateTraitementErreurSaisie(type : TypeSaisie) : String { %]
+	$('input').addClass('error');
+	$('input').val('');
+	$('input').attr('placeholder', '[%=type.message%]');
+	return false;
+[% } %]
+
+
+
+[% operation generateRedirection(suite : Aiguilleur) : String { %]
+	[% for ( test in suite.tests ) { %]
+		if ( [%=generateTest(test)%] ) {
+			[%=generateRedirection(test.destination)%]
+		}
+	[% } %]
+	[%=generateRedirection(suite.elseDestination)%]
+[% } %]
+
+[% operation generateRedirection(suite : Question ) : String { %]
+	window.location.href = "page[%=Next.all.indexOf(suite)%].html";
+	return false;
+[% } %]
+
+[% operation generateRedirection(suite : Fin ) : String { %]
+	window.location.href = "page[%=Next.all.indexOf(suite)%].html";
+	return false;
+[% } %]
+
+[% operation generateTest(test : TestEntre) : String { %]
+	Math.floor(val) >= [%=test.borneMinIncluse%] && Math.floor(val) < [%=test.borneMaxExcluse%]
+[% } %]
+
+[% operation generateTest(test : TestInferieur) : String { %]
+	Math.floor(val) < [%=test.valeur%] 
+[% } %]
+
+[% operation generateTest(test : TestSuperieur) : String { %]
+	Math.floor(val) >= [%=test.valeur%] 
+[% } %]
+
+[% operation generateTest(test : TestEgalite) : String { %]
+	val === "[%=test.egal%]" 
+[% } %]

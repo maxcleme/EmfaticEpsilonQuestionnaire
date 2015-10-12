@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questionnaire:Questionnaire xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:questionnaire="questionnaire">
+  <questions xsi:type="questionnaire:QuestionOuverte" question="Quel age avez vous ?" suite="//@aiguilleurs.0">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieNumerique"/>
+  </questions>
+  <questions xsi:type="questionnaire:Texte" question="Ceci est un texte, il ne demande aucune entree utilisateur" suite="//@questions.0"/>
+  <questions xsi:type="questionnaire:QuestionOuiNon" question="Avez vous des enfants ?" suite="//@aiguilleurs.1">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieAlpha"/>
+  </questions>
+  <questions xsi:type="questionnaire:QuestionOuiNon" question="Etes vous etudiants ?" suite="//@aiguilleurs.2">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieAlpha"/>
+  </questions>
+  <questions xsi:type="questionnaire:QuestionOuverte" question="Combien d'enfant avez vous ?" suite="//@questions.3">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieNumerique"/>
+  </questions>
+  <questions xsi:type="questionnaire:QuestionReponseMultiple" question="Quel est le type de votre etablissement ?" suite="//@aiguilleurs.3">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieAlpha"/>
+    <reponsesPossible>Primaire</reponsesPossible>
+    <reponsesPossible>College</reponsesPossible>
+    <reponsesPossible>Lycee</reponsesPossible>
+    <reponsesPossible>Universite</reponsesPossible>
+    <reponsesPossible>Ecole d'ingenieur</reponsesPossible>
+  </questions>
+  <questions xsi:type="questionnaire:QuestionOuverte" question="Quel est votre domaine d'etude ?" suite="//@fin">
+    <typeSaisie xsi:type="questionnaire:TypeSaisieAlphaNumerique"/>
+  </questions>
+  <aiguilleurs nom="" elseDestination="//@questions.3">
+    <tests xsi:type="questionnaire:TestSuperieur" destination="//@questions.2" valeur="21"/>
+  </aiguilleurs>
+  <aiguilleurs elseDestination="//@questions.3">
+    <tests xsi:type="questionnaire:TestEgalite" destination="//@questions.4" egal="Oui"/>
+  </aiguilleurs>
+  <aiguilleurs elseDestination="//@fin">
+    <tests xsi:type="questionnaire:TestEgalite" destination="//@questions.5" egal="Oui"/>
+  </aiguilleurs>
+  <aiguilleurs elseDestination="//@fin">
+    <tests xsi:type="questionnaire:TestEgalite" destination="//@questions.6" egal="Universite"/>
+    <tests xsi:type="questionnaire:TestEgalite" destination="//@questions.6" egal="Ecole d'ingenieur"/>
+  </aiguilleurs>
+  <fin/>
+  <debut premiereQuestion="//@questions.1"/>
+</questionnaire:Questionnaire>

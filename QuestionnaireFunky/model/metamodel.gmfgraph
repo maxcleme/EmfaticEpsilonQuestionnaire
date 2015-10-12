@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="questionnaire">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="DebutPremiereQuestionFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="AiguilleurElseDestinationFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="QuestionSuiteFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="TestDestinationFigureTargetDecoration"/>
+    <descriptors name="DebutFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="DebutFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/start.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="DebutLabelFigure" text="debut"/>
+      </actualFigure>
+      <accessors accessor="getFigureDebutLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="FinFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="FinFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/end.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FinLabelFigure" text="fin"/>
+      </actualFigure>
+      <accessors accessor="getFigureFinLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TexteFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TexteFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TexteLabelFigure" text="Texte">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="TexteTypeSaisieCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureTexteLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getTexteTypeSaisieCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="QuestionOuverteFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="QuestionOuverteFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="QuestionOuverteLabelFigure" text="QuestionOuverte">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="QuestionOuverteTypeSaisieCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureQuestionOuverteLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors accessor="getQuestionOuverteTypeSaisieCompartmentFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="QuestionOuiNonFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="QuestionOuiNonFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="QuestionOuiNonLabelFigure" text="QuestionOuiNon">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="QuestionOuiNonTypeSaisieCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureQuestionOuiNonLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors accessor="getQuestionOuiNonTypeSaisieCompartmentFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="QuestionReponseMultipleFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="QuestionReponseMultipleFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="QuestionReponseMultipleLabelFigure" text="QuestionReponseMultiple">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="QuestionReponseMultipleTypeSaisieCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureQuestionReponseMultipleLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getQuestionReponseMultipleTypeSaisieCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="AiguilleurFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="AiguilleurFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="AiguilleurLabelFigure" text="Si">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="AiguilleurTestsCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureAiguilleurLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getAiguilleurTestsCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="TestEntreFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="TestEntreFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/brackets.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TestEntreLabelFigure" text="TestEntre"/>
+      </actualFigure>
+      <accessors accessor="getFigureTestEntreLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TestInferieurFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="TestInferieurFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/lessThan.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TestInferieurLabelFigure" text="TestInferieur"/>
+      </actualFigure>
+      <accessors accessor="getFigureTestInferieurLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TestSuperieurFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="TestSuperieurFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/greaterThanOrEqual.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TestSuperieurLabelFigure" text="TestSuperieur"/>
+      </actualFigure>
+      <accessors accessor="getFigureTestSuperieurLabelFigure" figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TestEgaliteFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="TestEgaliteFigure" documentURI="platform:/plugin/QuestionnaireFunky/model/img/equal.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TestEgaliteLabelFigure" text="TestEgalite"/>
+      </actualFigure>
+      <accessors accessor="getFigureTestEgaliteLabelFigure" figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TypeSaisieNumeriqueFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TypeSaisieNumeriqueFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TypeSaisieNumeriqueLabelFigure" text="[0-9]"/>
+      </actualFigure>
+      <accessors accessor="getFigureTypeSaisieNumeriqueLabelFigure" figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TypeSaisieAlphaNumeriqueFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TypeSaisieAlphaNumeriqueFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TypeSaisieAlphaNumeriqueLabelFigure" text="[a-zA-Z0-9]"/>
+      </actualFigure>
+      <accessors accessor="getFigureTypeSaisieAlphaNumeriqueLabelFigure" figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TypeSaisieAlphaFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TypeSaisieAlphaFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TypeSaisieAlphaLabelFigure" text="[a-zA-Z]"/>
+      </actualFigure>
+      <accessors accessor="getFigureTypeSaisieAlphaLabelFigure" figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TypeSaisieAllFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TypeSaisieAllFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TypeSaisieAllLabelFigure" text="[*]"/>
+      </actualFigure>
+      <accessors accessor="getFigureTypeSaisieAllLabelFigure" figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DebutPremiereQuestionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="DebutPremiereQuestionFigure" targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors name="DebutPremiereQuestionExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="DebutPremiereQuestionExternalLabel"/>
+    </descriptors>
+    <descriptors name="AiguilleurElseDestinationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AiguilleurElseDestinationFigure" targetDecoration="//@figures.0/@figures.1"/>
+    </descriptors>
+    <descriptors name="AiguilleurElseDestinationExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="AiguilleurElseDestinationExternalLabel" text="Sinon"/>
+    </descriptors>
+    <descriptors name="QuestionSuiteFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="QuestionSuiteFigure" targetDecoration="//@figures.0/@figures.2"/>
+    </descriptors>
+    <descriptors name="QuestionSuiteExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="QuestionSuiteExternalLabel"/>
+    </descriptors>
+    <descriptors name="TestDestinationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TestDestinationFigure" targetDecoration="//@figures.0/@figures.3"/>
+    </descriptors>
+    <descriptors name="TestDestinationExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="TestDestinationExternalLabel"/>
+    </descriptors>
+  </figures>
+  <nodes name="Debut" figure="DebutFigure"/>
+  <nodes name="Fin" figure="FinFigure"/>
+  <nodes name="Texte" figure="TexteFigure"/>
+  <nodes name="QuestionOuverte" figure="QuestionOuverteFigure"/>
+  <nodes name="QuestionOuiNon" figure="QuestionOuiNonFigure"/>
+  <nodes name="QuestionReponseMultiple" figure="QuestionReponseMultipleFigure"/>
+  <nodes name="Aiguilleur" figure="AiguilleurFigure"/>
+  <nodes name="TestEntre" figure="TestEntreFigure"/>
+  <nodes name="TestInferieur" figure="TestInferieurFigure"/>
+  <nodes name="TestSuperieur" figure="TestSuperieurFigure"/>
+  <nodes name="TestEgalite" figure="TestEgaliteFigure"/>
+  <nodes name="TypeSaisieNumerique" figure="TypeSaisieNumeriqueFigure"/>
+  <nodes name="TypeSaisieAlphaNumerique" figure="TypeSaisieAlphaNumeriqueFigure"/>
+  <nodes name="TypeSaisieAlpha" figure="TypeSaisieAlphaFigure"/>
+  <nodes name="TypeSaisieAll" figure="TypeSaisieAllFigure"/>
+  <connections name="DebutPremiereQuestion" figure="DebutPremiereQuestionFigure"/>
+  <connections name="AiguilleurElseDestination" figure="AiguilleurElseDestinationFigure"/>
+  <connections name="QuestionSuite" figure="QuestionSuiteFigure"/>
+  <connections name="TestDestination" figure="TestDestinationFigure"/>
+  <compartments name="TexteTypeSaisieCompartment" figure="TexteFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments name="QuestionOuverteTypeSaisieCompartment" figure="QuestionOuverteFigure" collapsible="true" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <compartments name="QuestionOuiNonTypeSaisieCompartment" figure="QuestionOuiNonFigure" collapsible="true" accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <compartments name="QuestionReponseMultipleTypeSaisieCompartment" figure="QuestionReponseMultipleFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <compartments name="AiguilleurTestsCompartment" figure="AiguilleurFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <labels name="DebutLabel" figure="DebutFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="FinLabel" figure="FinFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="TexteLabel" figure="TexteFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="QuestionOuverteLabel" figure="QuestionOuverteFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="QuestionOuiNonLabel" figure="QuestionOuiNonFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="QuestionReponseMultipleLabel" figure="QuestionReponseMultipleFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="AiguilleurLabel" figure="AiguilleurFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="TestEntreLabel" figure="TestEntreFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="TestInferieurLabel" figure="TestInferieurFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="TestSuperieurLabel" figure="TestSuperieurFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels name="TestEgaliteLabel" figure="TestEgaliteFigure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels name="TypeSaisieNumeriqueLabel" figure="TypeSaisieNumeriqueFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels name="TypeSaisieAlphaNumeriqueLabel" figure="TypeSaisieAlphaNumeriqueFigure" accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels name="TypeSaisieAlphaLabel" figure="TypeSaisieAlphaFigure" accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <labels name="TypeSaisieAllLabel" figure="TypeSaisieAllFigure" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+  <labels name="DebutPremiereQuestionExternalLabel" figure="DebutPremiereQuestionExternalLabelFigure" elementIcon="false"/>
+  <labels name="AiguilleurElseDestinationExternalLabel" figure="AiguilleurElseDestinationExternalLabelFigure" elementIcon="false"/>
+  <labels name="QuestionSuiteExternalLabel" figure="QuestionSuiteExternalLabelFigure" elementIcon="false"/>
+  <labels name="TestDestinationExternalLabel" figure="TestDestinationExternalLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>

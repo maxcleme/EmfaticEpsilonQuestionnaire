@@ -1,0 +1,26 @@
+[%for (debut in Debut) { %]
+   [%   	
+      var t : Template = TemplateFactory.load("debut.egl");
+	  t.populate("debut", debut);
+	  t.generate("gen/debut.html");
+   %]
+[% } %]
+
+
+[%for (question in Question) { %]
+   [%
+      var t : Template = TemplateFactory.load("question.egl");
+	  t.populate("question", question);
+	  t.generate("gen/page"+ Next.all.indexOf(question) + ".html");
+   %]
+[% } %]
+
+
+[%for (fin in Fin) { %]
+   [%   	
+      var t : Template = TemplateFactory.load("fin.egl");
+	  t.populate("fin", fin);
+	  t.generate("gen/page"+Next.all.indexOf(fin)+".html");
+   %]
+[% } %]
+   
