@@ -1,7 +1,0 @@
-# Tracing options for the QuestionnaireFunky.diagram plug-in
-
-# Common issues
-QuestionnaireFunky.diagram/debug=false
-
-# Visual IDs
-QuestionnaireFunky.diagram/debug/visualID=false
